@@ -17,7 +17,7 @@ public class Posição {
 	public int getLinhas() {
 		return linhas;
 	}
-
+	
 	public void setLinhas(int linhas) {
 		this.linhas = linhas;
 	}
@@ -34,11 +34,6 @@ public class Posição {
 	@Override
 	public String toString() {
 		return linhas + "," + colunas;
-	}
-	
-
-	
-	
-	
+	}	
 
 }
