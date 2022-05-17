@@ -30,6 +30,15 @@ public class Tabuleiro {
 	public void setColunas(int colunas) {
 		this.colunas = colunas;
 	}
+	/*metodo para retornar uma peça na matriz de linhas e colunas*/
+	public Pecas peca (int linhas, int colunas) {
+		return pecas [linhas][colunas];
+	}
+	
+	/*sobrecarga do método anterior*/
+	public Pecas peca (Posição posicao) {
+		return pecas [posicao.getLinhas()][posicao.getColunas()];
+	}
 	
 }
 	
