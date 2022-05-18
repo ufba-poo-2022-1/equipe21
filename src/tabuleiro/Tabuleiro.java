@@ -39,7 +39,13 @@ public class Tabuleiro {
 	public Pecas peca (Posição posicao) {
 		return pecas [posicao.getLinhas()][posicao.getColunas()];
 	}
-	
+	/* atribuir à matriz uma peça de acordo com uma determinada posicao */
+	public void colocar_peca(Pecas peca,Posição posicao) {
+		pecas [posicao.getLinhas()] [posicao.getColunas()] = peca;//mesma matriz que foi declarada no tabuleiro (linha 7) e instanciada no construtor(l 13)
+		peca.posicao = posicao;
+		/*A peca não esta mais na posicao nula e sim na posicao declarada nesse metodo.
+		 * A posicao da peca é acessivel pois foi declarada como protected na classe peca e estamos usando no mesmo pacote(tabuleiro) */
+	}
 }
 	
 	

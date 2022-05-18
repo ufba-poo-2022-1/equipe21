@@ -1,14 +1,17 @@
 package xadrez;
 
+import tabuleiro.Posição;
 import tabuleiro.Tabuleiro;
+import xadrez.pecas.Rei;
+import xadrez.pecas.Torre;
 
 /* classe onde contem as regras do jogo*/
 public class Partida_xadrez {
 	private Tabuleiro tabul;
 	
 	public Partida_xadrez() {
-		tabul = new Tabuleiro(8,8);//dimensao do tabuleiro
-		
+		tabul = new Tabuleiro(8,8);//criação da dimensao do tabuleiro
+		iniciarPartida();//chamando a inicialização da partida
 	}
 	/*O método abaixo retorna uma matriz de pecas de xadrez correspondente 
 	 * a uma partida
@@ -25,5 +28,11 @@ public class Partida_xadrez {
 					}
 				}	
 				return matriz;
+	}
+	//metodo responsavel por iniciar a partida de xadrez, colocando as pecas no tabuleiro
+	private void iniciarPartida() {
+		tabul.colocar_peca(new Torre(tabul, Cor.WHITE), new Posição(2, 1));//essa Posição é a que está na camada do tabuleiro)
+		tabul.colocar_peca(new Rei(tabul, Cor.BLACK), new Posição(0, 4)); 
+		tabul.colocar_peca(new Rei(tabul, Cor.WHITE), new Posição(7, 4));
 	}
 }
