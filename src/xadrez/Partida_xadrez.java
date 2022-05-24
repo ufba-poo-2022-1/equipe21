@@ -1,6 +1,5 @@
 package xadrez;
 
-import tabuleiro.Posição;
 import tabuleiro.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -29,10 +28,16 @@ public class Partida_xadrez {
 				}	
 				return matriz;
 	}
+	//metodo que recebe as coordenadas do xadrez
+	private void nova_peca(char coluna, int linha, Peça_xadrez peca) {
+		tabul.colocar_peca(peca, new posicao_xadrez(coluna, linha).convert_posic());
+	}
+	
+	
 	//metodo responsavel por iniciar a partida de xadrez, colocando as pecas no tabuleiro
 	private void iniciarPartida() {
-		tabul.colocar_peca(new Torre(tabul, Cor.WHITE), new Posição(2, 1));//essa Posição é a que está na camada do tabuleiro)
-		tabul.colocar_peca(new Rei(tabul, Cor.BLACK), new Posição(0, 4)); 
-		tabul.colocar_peca(new Rei(tabul, Cor.WHITE), new Posição(7, 4));
+		nova_peca('b', 6, new Torre(tabul, Cor.WHITE));//colcando uma nova peça em determinada posicao
+		nova_peca('e', 8, new Rei(tabul, Cor.BLACK)); 
+		nova_peca('e', 1, new Rei(tabul, Cor.WHITE));
 	}
 }
