@@ -1,3 +1,4 @@
+//classe que representa a posição do xadrez como ele será utilizado. Exemplo linha 1, coluna A... 
 package xadrez;
 
 import tabuleiro.Posição;

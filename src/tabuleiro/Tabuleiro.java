@@ -63,6 +63,22 @@ public class Tabuleiro {
 		/*A peca não esta mais na posicao nula e sim na posicao declarada nesse metodo.
 		 * A posicao da peca é acessivel pois foi declarada como protected na classe peca e estamos usando no mesmo pacote(tabuleiro) */
 	}
+	//metodo para remover uma peça em determinada posição do tabuleiro
+	public Pecas remover_Peca(Posição posicao) {
+		if (!existe_posicao(posicao)) {
+			throw new Exceção("Não existe essa posição no tabuleiro");
+		}
+		//testar se a peça nessa posição é nula, caso sim, não há peça nessa posição 
+		if (peca(posicao)== null) {
+			return null;
+		}
+		//caso não vamos retirar a peça do tabuleiro
+		Pecas auxiliar = peca(posicao);//variavel auxiliar para receber a peça q tiver no tabuleiro nessa posiçã
+		auxiliar.posicao = null;//peça foi retirada do tabuleiro
+		pecas[posicao.getLinhas()][posicao.getColunas()] = null;//na matriz, na posição onde a peça foi removida não tem mais nenhuma peça, é nula. 
+		return auxiliar;
+	}
+	
 	//metodo auxiliar:
 	private boolean existe_posicao(int linha, int coluna) {
 		return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas;//condição par  verificar se uma posicao existe

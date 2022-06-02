@@ -1,7 +1,11 @@
 package aplication;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.Cor;
 import xadrez.Peça_xadrez;
+import xadrez.posicao_xadrez;
 /*classe usada para imprimir o tabuleiro - UI = user interface*/
 public class UI {
 	
@@ -25,6 +29,24 @@ public class UI {
 		public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 		public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
+		//metodo para ler uma posição do usuário:
+	public static posicao_xadrez lerPosicaoXadrez(Scanner sc) {
+		
+		//bloco para evitar problema de formato:
+		try {
+			String s = sc.nextLine();//leitura da string coluna
+			char colunas = s.charAt(0); //variavel que recebe o primeiro caracter da coluna
+			//leitura da linha
+			int linhas = Integer.parseInt(s.substring(1));//recortar a string a partir da posicao 1 e converter o resultado apra inteiro
+			return new posicao_xadrez(colunas,linhas);
+		}
+		catch (RuntimeException e) {
+			//exceção do java. Erro de entrada de dados. 
+			throw new InputMismatchException("Erro lendo a posição do xadrez. Valores válidos: são de A1 até H8");
+		}
+	}
+		
+		
 	public static void imprimiTabuleiro(Peça_xadrez[][]pecas) {
 		for (int i=0;  i<pecas.length; i++) {
 			System.out.print((8 - i) + " ");
@@ -42,13 +64,13 @@ public class UI {
 		if (peca == null) {
 			System.out.print("-");
 		}
-		else {
-			System.out.print(peca);
-		}
-		System.out.print(" ");
-    	if (peca == null) {
-            System.out.print("-");
-        }
+		//else {
+			//System.out.print(peca);
+		//}
+	//	System.out.print(" ");
+    	//if (peca == null) {
+          //  System.out.print("-");
+       // }
         else {
         	//testar se a peça é branca ou preta
             if (peca.getCor() == Cor.WHITE) {
