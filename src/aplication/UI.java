@@ -64,6 +64,7 @@ public class UI {
 		if (peca == null) {
 			System.out.print("-");
 		}
+<<<<<<< HEAD
 		//else {
 			//System.out.print(peca);
 		//}
@@ -72,6 +73,9 @@ public class UI {
           //  System.out.print("-");
        // }
         else {
+=======
+		else {
+>>>>>>> e0423a87d22d1158d045fc71256544b240a692df
         	//testar se a peça é branca ou preta
             if (peca.getCor() == Cor.WHITE) {
                 System.out.print(ANSI_WHITE + peca + ANSI_RESET);
